@@ -100,7 +100,28 @@ function task4() {
     console.log(products.sort((curr, next) => curr.price - next.price));
 }
 
+// необходимо объединить 2 этих массива, чтобы значения первого массива были ключами, а значения второго массива — значениями
+function task5() {
+    const en = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
+    const ru = ["понедельник", "вторник", "среда", "четверг", "пятница", "суббота", "воскресенье"];
+
+    if (en.length != ru.length) {
+        console.log('Даны массивы разной длины');
+        return;
+    }
+
+    en.map((item, i) => en[i] = getPairObject(item, ru[i]));
+    console.log(en);
+}
+
+function getPairObject(key, value) {
+    const obj = {};
+    obj[key] = value;
+    return obj;
+}
+
 execute(task1, '1');
 execute(task2, '2');
 execute(task3, '3');
 execute(task4, '4');
+execute(task5, '5');
